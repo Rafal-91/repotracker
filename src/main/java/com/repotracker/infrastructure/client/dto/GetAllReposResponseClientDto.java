@@ -1,6 +1,6 @@
 package com.repotracker.infrastructure.client.dto;
 
 
-public record RepositoriesResponseClientDto(Owner owner, String name) {
+public record GetAllReposResponseClientDto(Owner owner, String name) {
 
 }

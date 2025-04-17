@@ -1,4 +1,6 @@
-package com.repotracker.infrastructure.controller;
+package com.repotracker.infrastructure.controller.dto.response;
 
-public record DeleteRepoResponseDto() {
+import org.springframework.http.HttpStatus;
+
+public record DeleteRepoResponseDto(String message, HttpStatus httpStatus) {
 }

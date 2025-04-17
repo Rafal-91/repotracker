@@ -8,9 +8,7 @@ import lombok.*;
 @Getter
 @Setter
 @ToString
-@Table(name = "repo", uniqueConstraints = {
-        @UniqueConstraint(columnNames = {"name", "owner"})
-})
+@Table(name = "repo")
 public class Repo {
 
     @Id

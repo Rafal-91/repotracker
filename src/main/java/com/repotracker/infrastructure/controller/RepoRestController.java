@@ -8,6 +8,8 @@ import com.repotracker.infrastructure.controller.dto.response.*;
 import jakarta.validation.Valid;
 import lombok.AllArgsConstructor;
 import lombok.extern.log4j.Log4j2;
+import org.springframework.data.domain.Pageable;
+import org.springframework.data.web.PageableDefault;
 import org.springframework.http.MediaType;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
@@ -17,7 +19,7 @@ import java.util.List;
 @AllArgsConstructor
 @Log4j2
 @RestController
-public class RepoTrackerRestController {
+public class RepoRestController {
 
     private final RepoRetriever repoRetriever;
     private final RepoAdder repoAdder;
@@ -25,8 +27,8 @@ public class RepoTrackerRestController {
     private final RepoUpdater repoUpdater;
 
     @GetMapping()
-    public ResponseEntity<GetAllReposResponseDto> getAllRepos() {
-        List<Repo> repos = repoRetriever.findAll();
+    public ResponseEntity<GetAllReposResponseDto> getAllRepos(@PageableDefault(page = 0, size = 10) Pageable pageable) {
+        List<Repo> repos = repoRetriever.findAll(pageable);
         GetAllReposResponseDto response = RepoMapper.mapFromRepoToGetAllReposResponseDto(repos);
         return ResponseEntity.ok(response);
     }
@@ -39,9 +41,9 @@ public class RepoTrackerRestController {
     }
 
     @PostMapping(path = "/{userName}", produces = MediaType.APPLICATION_JSON_VALUE)
-    public ResponseEntity<RepositoriesResponseDto> addAllReposByUserName(@PathVariable String userName) {
+    public ResponseEntity<CreateAllReposResponseDto> addAllReposByUserName(@PathVariable String userName) {
         List<Repo> repos = repoAdder.addAllReposByUserName(userName);
-        RepositoriesResponseDto response = RepoMapper.mapRepoToRepositoriesResponseDto(repos);
+        CreateAllReposResponseDto response = RepoMapper.mapRepoToCreateAllReposResponseDto(repos);
         return ResponseEntity.ok(response);
     }
 

@@ -1,6 +1,6 @@
 package com.repotracker.infrastructure.config;
 
-import com.repotracker.infrastructure.client.error.FeignErrorDecoder;
+import com.repotracker.infrastructure.error.FeignErrorDecoder;
 import feign.codec.ErrorDecoder;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;

@@ -1,6 +1,6 @@
-package com.repotracker.infrastructure.controller.error;
+package com.repotracker.infrastructure.error;
 
 import org.springframework.http.HttpStatus;
 
-public record ErrorRepoResponseDto(String message, HttpStatus status) {
+public record ErrorResponseDto(String message, HttpStatus status) {
 }

@@ -1,4 +1,4 @@
 package com.repotracker.infrastructure.controller.dto.response;
 
-public record CreateRepoResponseDto() {
+public record CreateRepoResponseDto(RepoDto repoDto) {
 }

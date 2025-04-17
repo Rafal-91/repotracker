@@ -1,4 +1,4 @@
-package com.repotracker.infrastructure.client.error;
+package com.repotracker.infrastructure.error;
 
 import feign.Response;
 import feign.codec.ErrorDecoder;

@@ -1,4 +1,6 @@
-package com.repotracker.infrastructure.controller;
+package com.repotracker.infrastructure.controller.dto.response;
 
-public record UpdateRepoResponseDto() {
+import org.springframework.http.HttpStatus;
+
+public record UpdateRepoResponseDto(String message, HttpStatus status) {
 }
